@@ -1,0 +1,75 @@
+.order-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $text-light;
+    border-radius: softer(2);
+}
+
+.order {
+    position: relative;
+    padding: spacer(3) spacer(3);
+    cursor: pointer;
+    transition: $fast-animation all;
+    
+    &:hover {
+        background-color: rgba($blue-light, .5);
+    }
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $text-light;
+    }
+
+    &__client-title {
+        margin-bottom: spacer(1);
+        margin-top: 0;
+    }
+
+    &__client-phone {
+        font-weight: 700;
+        color: $text-light;
+        display: block;
+        margin-bottom: spacer(2);
+    }
+
+    &__price {
+        display: block;
+    }
+
+    &__price-span {
+        @include font($font-normal, 1, 700);
+
+        color: red;
+    }
+
+    &__order-type {
+        @include font($font-small, 1, 500);
+
+        text-transform: uppercase;
+        position: absolute;
+        right: 0;
+        bottom: spacer(3);
+        background-color: $blue;
+        padding: spacer(1) spacer(3);
+        color: #fff;
+
+        &:before {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -10px;
+            top: 0;
+            border-width: 10px 5px;
+            border-style: solid;
+            border-color: transparent $blue $blue transparent;
+        }
+
+        &--green {
+            background-color: $green;
+
+            &:before {
+                border-color: transparent $green $green transparent; 
+            }
+        }
+    }
+}
